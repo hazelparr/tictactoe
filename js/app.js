@@ -53,6 +53,7 @@
                 $("#single-player").remove();
                 $("#two-player").remove();
                 $("#error-text").remove();
+                $("#error-text-2").remove();
                 $("#game-choice").append("<div id='single-player'><p><label for='player1'>Enter Player name:</label></p><p><input type='text' class='player1' name='player1' id='player1-name'</p></div>");
                 console.log("single player");
 
@@ -60,6 +61,7 @@
                 $("#single-player").remove();
                 $("#two-player").remove();
                 $("#error-text").remove();
+                $("#error-text-2").remove();
                 console.log("two player");
                 $("#game-choice").append("<div id='two-player'><p><label for='player1'>Enter Player 1 name:</label></p><p><input type='text' class='player1' name='player1' id='player1-name'</p>" + 
                     "<p><label for='player2'>Enter Player 2 name:</label></p><p><input type='text' class='player2' name='player2' id='player2-name'</p></div>");
@@ -71,9 +73,15 @@
             
             //resets error message
             $("#error-text").remove();
+            $("#error-text-2").remove();
 
             //checks if the name field is empty
-            if ($("#player1-name").val() === "" || $("#player2-name").val() === "") {
+            if ( !$("input[name='choice']:checked").val() ) {
+                console.log("Nothing is checked");
+                $("#start .button").before("<p id='error-text-2'>Please select a game</p>");
+            }
+
+            else if ($("#player1-name").val() === "" || $("#player2-name").val() === "") {
 
                 $("#start .button").before("<p id='error-text'>Name can't be empty</p>");
             } else {
