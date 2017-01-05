@@ -276,7 +276,9 @@
 
         var computerChoice = $(emptySquares[randomSquare]);
 
-        computerChoice.click().addClass("box-filled-2");
+        setTimeout( function() {
+            computerChoice.click().addClass("box-filled-2");
+        }, 300);
     }
 
 })();
